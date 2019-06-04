@@ -1,0 +1,11 @@
+<div *ngFor="let comment of comments">
+  <ul>
+   <li>
+     {{comment.message}}
+     <textarea *ngIf="reply" rows="4" cols="50" [(ngModel)]="comment.message" placeholder="enter your reply">
+    </textarea>
+    <span (click)="postComments(unit)" type="button">reply</span>
+     <app-recursion [comments]="comment.replies" *ngIf="comment.replies"></app-recursion>
+   </li>
+  </ul>
+</div>
